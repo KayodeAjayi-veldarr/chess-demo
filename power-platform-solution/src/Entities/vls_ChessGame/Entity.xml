@@ -691,6 +691,7 @@
           <Name>vls_blackclockms</Name>
           <LogicalName>vls_blackclockms</LogicalName>
           <RequiredLevel>none</RequiredLevel>
+          <DisplayMask></DisplayMask>
           <ImeMode>disabled</ImeMode>
           <ValidForUpdateApi>1</ValidForUpdateApi>
           <ValidForReadApi>1</ValidForReadApi>
@@ -2136,6 +2137,7 @@
           <Name>vls_whiteclockms</Name>
           <LogicalName>vls_whiteclockms</LogicalName>
           <RequiredLevel>none</RequiredLevel>
+          <DisplayMask></DisplayMask>
           <ImeMode>disabled</ImeMode>
           <ValidForUpdateApi>1</ValidForUpdateApi>
           <ValidForReadApi>1</ValidForReadApi>
