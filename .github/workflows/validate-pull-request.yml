@@ -38,7 +38,7 @@ on:
       validation_environment_region:
         description: Region used for the temporary environment
         required: true
-        default: "UnitedKingdom"
+        default: "europe"
         type: string
 
       validation_environment_currency:
@@ -199,8 +199,6 @@ jobs:
       solution_name: "ChessPlayingAgent"
       solution_source_folder: ${{ format('{0}/src', needs.resolve_solution_folder.outputs.solution_folder) }}
       solution_package_type: Unmanaged
-      deployment_settings_file: ""
-
       run_solution_checker: >-
         ${{ github.event_name != 'workflow_dispatch' ||
         inputs.run_solution_checker }}
@@ -226,7 +224,7 @@ jobs:
         inputs.validation_environment_type || 'Sandbox' }}
 
       validation_environment_region: >-
-        ${{ inputs.validation_environment_region || 'UnitedKingdom' }}
+        ${{ inputs.validation_environment_region || 'europe' }}
 
       validation_environment_currency: >-
         ${{ inputs.validation_environment_currency || 'GBP' }}
