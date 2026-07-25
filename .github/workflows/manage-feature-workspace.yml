@@ -46,7 +46,7 @@ on:
       solution_folder:
         description: Repository folder to use for this solution run
         required: true
-        default: "chess-demo"
+        default: "power-platform-solution"
         type: string
 
       workspace_environment:
@@ -76,7 +76,7 @@ on:
       workspace_environment_region:
         description: Region used only when creating a new environment
         required: true
-        default: "europe"
+        default: "UnitedKingdom"
         type: string
 
       workspace_environment_currency:

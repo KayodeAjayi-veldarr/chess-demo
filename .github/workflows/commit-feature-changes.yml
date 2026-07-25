@@ -23,7 +23,7 @@ on:
       solution_folder:
         description: Repository folder to update with this solution export
         required: true
-        default: "chess-demo"
+        default: "power-platform-solution"
         type: string
 
       commit_message:

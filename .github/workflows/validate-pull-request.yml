@@ -23,7 +23,7 @@ on:
       solution_folder:
         description: Repository folder containing the solution to validate
         required: false
-        default: "chess-demo"
+        default: "power-platform-solution"
         type: string
 
       validation_environment_type:
@@ -38,7 +38,7 @@ on:
       validation_environment_region:
         description: Region used for the temporary environment
         required: true
-        default: "europe"
+        default: "UnitedKingdom"
         type: string
 
       validation_environment_currency:
@@ -97,7 +97,7 @@ jobs:
         env:
           EVENT_NAME: ${{ github.event_name }}
           REQUESTED_FOLDER: ${{ inputs.solution_folder }}
-          DEFAULT_FOLDER: "chess-demo"
+          DEFAULT_FOLDER: "power-platform-solution"
           BASE_SHA: ${{ github.event.pull_request.base.sha }}
           HEAD_SHA: ${{ github.event.pull_request.head.sha }}
         run: |
@@ -226,7 +226,7 @@ jobs:
         inputs.validation_environment_type || 'Sandbox' }}
 
       validation_environment_region: >-
-        ${{ inputs.validation_environment_region || 'europe' }}
+        ${{ inputs.validation_environment_region || 'UnitedKingdom' }}
 
       validation_environment_currency: >-
         ${{ inputs.validation_environment_currency || 'GBP' }}
