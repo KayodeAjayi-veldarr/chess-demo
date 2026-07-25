@@ -1,0 +1,125 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_agentnode": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "new_sharedagentnode_06185c03"
+        },
+        "api": {
+          "name": "shared_agentnode"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        }
+      },
+      "triggers": {
+        "manual": {
+          "metadata": {
+            "operationMetadataId": "f56ed759-b733-4a17-a278-1a14b249e908"
+          },
+          "type": "Request",
+          "kind": "PowerAppV2",
+          "inputs": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "text": {
+                  "title": "sample Input",
+                  "type": "string",
+                  "x-ms-dynamically-added": true,
+                  "description": "Please enter your input",
+                  "x-ms-content-hint": "TEXT"
+                }
+              },
+              "required": [
+                "text"
+              ]
+            }
+          }
+        }
+      },
+      "actions": {
+        "Agent": {
+          "runAfter": {},
+          "metadata": {
+            "description": "Agent",
+            "nodeId": "agent-ef0c9f72-cb92-458e-bf9d-8fbc3d693b9e",
+            "operationMetadataId": "e65c91bc-6340-4cea-aee7-a2f0a3814e41"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "parameters": {
+              "body/agentId": "cr174_copilotchess_GdGJRJ",
+              "body/prompt": "hi"
+            },
+            "host": {
+              "connectionName": "shared_agentnode",
+              "operationId": "InvokeAgent",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_agentnode"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        },
+        "Respond_to_a_Power_App_or_flow": {
+          "runAfter": {
+            "Compose": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "description": "Respond to a Power App or flow",
+            "nodeId": "builtinFunction-de2d09f7-e358-4590-84dd-35170697196d",
+            "operationMetadataId": "714db3a9-fc1e-4673-aed7-bb7e9bc721c6"
+          },
+          "type": "Response",
+          "kind": "PowerApp",
+          "inputs": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "text": {
+                  "title": "Sample Output",
+                  "type": "string",
+                  "x-ms-content-hint": "TEXT",
+                  "x-ms-dynamically-added": true
+                }
+              },
+              "required": [
+                "text"
+              ],
+              "additionalProperties": {}
+            },
+            "statusCode": 200
+          }
+        },
+        "Compose": {
+          "runAfter": {
+            "Agent": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "4ea13d1c-2116-4d5c-87ec-d64374cbf9c7"
+          },
+          "type": "Compose",
+          "inputs": "@outputs('Agent')?['body/conversationId']"
+        }
+      },
+      "outputs": {}
+    },
+    "templateName": ""
+  },
+  "schemaVersion": "1.0.0.0"
+}
