@@ -16,6 +16,12 @@ on:
         default: main
         type: string
 
+      solution_folder:
+        description: Repository folder containing the solution to deploy
+        required: true
+        default: "chess-demo"
+        type: string
+
       target_environment:
         description: Target environment name, URL or ID
         required: true
@@ -44,11 +50,11 @@ jobs:
     uses: KayodeAjayi-Veldarr/power-platform-workflows/.github/workflows/deploy-solution.yml@main
 
     with:
-      project_key: "ChessDemo"
+      project_key: "chess-demo"
       source_ref: ${{ inputs.source_ref }}
 
       solution_name: "ChessPlayingAgent"
-      solution_source_folder: "power-platform/ChessPlayingAgent/src"
+      solution_source_folder: ${{ format('{0}/src', inputs.solution_folder) }}
       solution_package_type: ${{ inputs.solution_package_type }}
 
       target_environment: ${{ inputs.target_environment }}

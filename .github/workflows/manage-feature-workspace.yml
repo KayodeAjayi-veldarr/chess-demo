@@ -28,7 +28,7 @@ on:
       developer_upn:
         description: Developer Microsoft 365 email address
         required: false
-        default: "Kayode.ajayi@veldarr.com"
+        default: "kayode.ajayi@veldarr.com"
         type: string
 
       source_environment:
@@ -41,6 +41,12 @@ on:
         description: Solution unique name in the source environment
         required: false
         default: "ChessPlayingAgent"
+        type: string
+
+      solution_folder:
+        description: Repository folder to use for this solution run
+        required: true
+        default: "chess-demo"
         type: string
 
       workspace_environment:
@@ -122,7 +128,7 @@ jobs:
     with:
       workspace_action: ${{ inputs.workspace_action }}
 
-      project_key: "ChessDemo"
+      project_key: "chess-demo"
       branch_ref: ${{ github.ref_name }}
       base_branch: "main"
 
@@ -135,8 +141,8 @@ jobs:
       source_export_async: true
 
       solution_name: "ChessPlayingAgent"
-      solution_project_folder: "power-platform/chess-demo"
-      solution_source_folder: "power-platform/chess-demo/src"
+      solution_project_folder: ${{ inputs.solution_folder }}
+      solution_source_folder: ${{ format('{0}/src', inputs.solution_folder) }}
       solution_package_type: Unmanaged
       deployment_settings_file: ""
 
@@ -167,7 +173,7 @@ jobs:
       asynchronous_import: false
 
       deletion_confirmation: ${{ inputs.deletion_confirmation }}
-      expected_environment_name_prefix: "ChessDemo-"
+      expected_environment_name_prefix: "chess-demo-"
       allowed_environment_types: Developer,Sandbox,Trial,SubscriptionBasedTrial
       asynchronous_delete: true
 
