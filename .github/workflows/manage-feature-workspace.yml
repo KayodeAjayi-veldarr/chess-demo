@@ -135,8 +135,8 @@ jobs:
       source_export_async: true
 
       solution_name: "ChessPlayingAgent"
-      solution_project_folder: "power-platform/ChessPlayingAgent"
-      solution_source_folder: "power-platform/ChessPlayingAgent/src"
+      solution_project_folder: "power-platform/CHESS-DEMO"
+      solution_source_folder: "power-platform/CHESS-DEMO/src"
       solution_package_type: Unmanaged
       deployment_settings_file: ""
 
