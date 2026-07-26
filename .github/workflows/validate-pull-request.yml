@@ -235,7 +235,8 @@ jobs:
       validation_environment_templates: ""
       validation_environment_security_group_id: ""
 
-      environment_create_async: true
+      environment_create_async: false
+      environment_stabilization_seconds: 180
       force_overwrite: true
       publish_changes: true
       asynchronous_import: false
