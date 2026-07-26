@@ -25,9 +25,7 @@
     <RootComponents>
       <RootComponent type="1" schemaName="vls_chessgame" behavior="0" />
       <RootComponent type="1" schemaName="vls_chesspositionsnapshot" behavior="0" />
-      <RootComponent type="29" id="{1d41f968-6c7e-f111-ab0f-7ced8d9c5c1b}" behavior="0" />
       <RootComponent type="29" id="{7c996af6-6c7e-f111-ab0f-7ced8d9c5c1b}" behavior="0" />
-      <RootComponent type="29" id="{9dd0d80b-3a39-a2a9-330f-3467b30bb9b2}" behavior="0" />
       <RootComponent type="300" schemaName="vls_chesscopilot_9e090" behavior="0" />
       <RootComponent type="9" schemaName="vls_chesscolor" behavior="0" />
       <RootComponent type="9" schemaName="vls_chessgamemode" behavior="0" />
