@@ -198,7 +198,7 @@ jobs:
 
       solution_name: "ChessPlayingAgent"
       solution_source_folder: ${{ format('{0}/src', needs.resolve_solution_folder.outputs.solution_folder) }}
-      solution_package_type: Unmanaged
+      solution_package_type: Managed
       run_solution_checker: >-
         ${{ github.event_name != 'workflow_dispatch' ||
         inputs.run_solution_checker }}
