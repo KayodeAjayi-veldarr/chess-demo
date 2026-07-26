@@ -1430,11 +1430,11 @@
           </Descriptions>
         </attribute>
         <attribute PhysicalName="vls_BlackClockMs">
-          <Type>bigint</Type>
+          <Type>int</Type>
           <Name>vls_blackclockms</Name>
           <LogicalName>vls_blackclockms</LogicalName>
           <RequiredLevel>none</RequiredLevel>
-          <DisplayMask></DisplayMask>
+          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
           <ImeMode>disabled</ImeMode>
           <ValidForUpdateApi>1</ValidForUpdateApi>
           <ValidForReadApi>1</ValidForReadApi>
@@ -1459,11 +1459,14 @@
           <IsFilterable>0</IsFilterable>
           <IsRetrievable>0</IsRetrievable>
           <IsLocalizable>0</IsLocalizable>
+          <Format>none</Format>
+          <MinValue>0</MinValue>
+          <MaxValue>86400000</MaxValue>
           <displaynames>
             <displayname description="Black Clock Milliseconds" languagecode="1033" />
           </displaynames>
           <Descriptions>
-            <Description description="Remaining black clock after the move." languagecode="1033" />
+            <Description description="Remaining black clock in milliseconds." languagecode="1033" />
           </Descriptions>
         </attribute>
         <attribute PhysicalName="vls_C1">
@@ -4395,11 +4398,11 @@
           </Descriptions>
         </attribute>
         <attribute PhysicalName="vls_WhiteClockMs">
-          <Type>bigint</Type>
+          <Type>int</Type>
           <Name>vls_whiteclockms</Name>
           <LogicalName>vls_whiteclockms</LogicalName>
           <RequiredLevel>none</RequiredLevel>
-          <DisplayMask></DisplayMask>
+          <DisplayMask>ValidForAdvancedFind|ValidForForm|ValidForGrid</DisplayMask>
           <ImeMode>disabled</ImeMode>
           <ValidForUpdateApi>1</ValidForUpdateApi>
           <ValidForReadApi>1</ValidForReadApi>
@@ -4424,11 +4427,14 @@
           <IsFilterable>0</IsFilterable>
           <IsRetrievable>0</IsRetrievable>
           <IsLocalizable>0</IsLocalizable>
+          <Format>none</Format>
+          <MinValue>0</MinValue>
+          <MaxValue>86400000</MaxValue>
           <displaynames>
             <displayname description="White Clock Milliseconds" languagecode="1033" />
           </displaynames>
           <Descriptions>
-            <Description description="Remaining white clock after the move." languagecode="1033" />
+            <Description description="Remaining white clock in milliseconds." languagecode="1033" />
           </Descriptions>
         </attribute>
       </attributes>
@@ -4515,3 +4521,4 @@
   <SavedQueries />
   <RibbonDiffXml />
 </Entity>
+
